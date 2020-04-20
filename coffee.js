@@ -1,0 +1,29 @@
+"use strict";
+
+function buyCoffee(name, price, element) {
+//  console.log([name, price, element]);
+  let balanceInput = document.querySelector("input[placeholder='Баланс']");
+ // balanceInput.value = 100; // задаем баланс
+//  console.log(balanceInput);
+
+  if ( +balanceInput.value < price ) {
+  //  alert("Недостаточно средств");
+  changeDisplayText("Недостаточно средств");
+  balanceInput.style.border = "2px solid red";
+  } else {
+    balanceInput.value -= price; // вычитаем price из balance
+    balanceInput.style.border = "";
+    cookCoffee(name, element);
+  }
+}
+
+function cookCoffee(name, buttonElement) {
+  changeDisplayText("Ваш " + name + " готовится");
+  let progressBar = document.querySelector(".progress-bar");
+  console.log(progressBar);
+}
+
+function changeDisplayText(text) {
+  let displayText = document.querySelector('.display-text');
+  displayText.innerHTML = text;
+}
