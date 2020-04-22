@@ -40,8 +40,8 @@
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
               </div>
             </div>
-            <div class="coffee-cup">
-              <img src="d-none" src="img/americano.png" alt="">
+            <div class="coffee-cup d-none">
+              <img src="img/americano.png" alt="">
             </div>
           </div>
           <div class="col-6">
@@ -61,7 +61,11 @@
       </div>
     </div>
   </div>
-
+<div class="bills">
+  <img src="img/50rub.jpg" alt="">
+  <img src="img/100rub.jpg" alt="">
+  <img src="img/500rub.jpg" alt="">
+</div>
     <!-- Optional JavaScript -->
     <script src="script.js"></script>
     <script src="coffee.js"></script>
