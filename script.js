@@ -113,5 +113,9 @@ function trashConsole() {
   console.log(Math.random());
 } */
 
-
+// changeBox.append(coin);//append добавляет в конец внутри элемента
+  // changeBox.prepend(coin); //добавляет в начало внутри элемента
+  // changeBox.before(coin); // добавляет перед элементом
+  // changeBox.after(coin); // добавляет после внутри элемента
+  // changeBox.replaceWith(coin); // заменяет элемент - 1 раз
 
