@@ -143,18 +143,17 @@ function inAtm(bill) {
 
 let changeButton = document.querySelector(".change-btn");
 let changeBox = document.querySelector(".change-box");
-//let coins = changeBox.querySelectorAll("img");
+let coins = changeBox.querySelectorAll("img");
 
 changeButton.onclick = function () {
-  //let changeBox = document.querySelector(".change-box");
-  let coins = changeBox.querySelectorAll("img");
+  
   if (coins.length == 0) {
     if(balanceInput.value == 0) {
       return;
     }
     changeButton.innerHTML = "Забрать сдачу";
     takeChange();
-  } else {
+    } else {
     changeButton.innerHTML = "Сдача";
     for (let i = 0; i < coins.length; i++) {
       coins[i].remove();
@@ -201,12 +200,16 @@ function tossCoin(cost) {
       imgSrc = "img/1rub.png";
       break;
   }
-  //let changeBox = document.querySelector(".change-box");
+}
+
+  let changeBox = document.querySelector(".change-box");
   changeBox.style.position = "relative";
   let changeBoxCoords = changeBox.getBoundingClientRect();
   let randomWidth = getRandomInt(0, changeBoxCoords.width - 50);
   let randomHeight = getRandomInt(0, changeBoxCoords.height - 50);
- 
+ // console.log(randomWidth, randomHeight);
+  // let randomWith = getRandomInt(changeBoxCoords.x, changeBoxCoords.x + changeBoxCoords.with);
+  // let randomHeight = getRandomInt(changeBoxCoords.y, changeBoxCoords.y + changeBoxCoords.height);
   let coin = document.createElement("img");
   coin.setAttribute('src', imgSrc);
   coin.style.width = "50px";
@@ -217,27 +220,15 @@ function tossCoin(cost) {
   coin.style.left = randomWidth + "px";
   changeBox.append(coin);
   
-  coin.onclick = function() {
+  coin.onclick = function() {// Проверить, сколько монет остается в контейнере, если после remove остается 0 - можно вернуть надпись обратно
+    //coin.remove();
+    if(coins.length > 1) {
+      coin.remove();
+  } else {
     coin.remove();
-    
-   let coins = changeBox.querySelectorAll("img"); 
-    if (coins.length > 0) {
-      changeButton.innerHTML = "Осталось " + coins.length + " монет(ы)";
-    } else {
-       changeButton.innerHTML = "Сдача";
-    }
+    changeButton.innerHTML = "Сдача";
   }
 }
- 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-}
-
-// console.log(randomWidth, randomHeight);
-  // let randomWith = getRandomInt(changeBoxCoords.x, changeBoxCoords.x + changeBoxCoords.with);
-  // let randomHeight = getRandomInt(changeBoxCoords.y, changeBoxCoords.y + changeBoxCoords.height);
   // changeBox.append(coin);//append добавляет в конец внутри элемеента
   // changeBox.prepend(coin); //добавляет в начало внутри элемеента
   // changeBox.before(coin); // добавляет перед элемеентом
@@ -246,3 +237,9 @@ function getRandomInt(min, max) {
   
  // changeBox.innerHTML += '<img src="img/10rub.png" class="coin">';
 
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+}

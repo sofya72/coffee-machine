@@ -40,8 +40,10 @@
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
               </div>
             </div>
-            <div class="coffee-cup d-none">
-              <img src="img/americano.png" alt="">
+           <!--  <div class="coffee-cup d-none">
+             <img src="img/americano.png" alt=""> -->
+             <div class="coffee-cup">
+             <img src="img/americano.png" alt="" d-none>
             </div>
           </div>
           <div class="col-6">
